@@ -46,6 +46,7 @@ main {
     width: 511px;
     align-items: flex-start;
     gap: 16px;
+    justify-content: space-between;
 }
 
 .input-name, .input-email {
@@ -78,6 +79,7 @@ main {
     line-height: 40px;
     border-radius: 8px;
     border: 1px solid var(--gray-4, #ced4da);
+    width: 230px;
 }
 
 .tamanho{
@@ -417,8 +419,8 @@ body {
 }
 
 .ticket {
+   display: none;
    width: 350px;
-   height: 408.938px;
    border-radius: 20px;
    background: var(--orange-0, #FFF4E6);
    flex-shrink: 0;
@@ -426,6 +428,7 @@ body {
    left: 62%;
    top: 15%;
    color: var(--other-black, #000);
+   font-family: Inter;
    font-size: 16px;
    font-style: normal;
    font-weight: 400;
@@ -435,10 +438,28 @@ body {
 
 .ticket-id {
     color: var(--orange-8, #E8590C);
-    font-family: Coda;
+    font-family: Inter;
     font-size: 34px;
     font-style: normal;
     font-weight: 400;
     line-height: 130%;
     text-align: center;
+    margin: 10px 0;
+}
+
+.items-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.items-lista ol {
+    list-style-type: none;
+}
+
+.items-lista h3 {
+    text-align: right;
+    margin-right: 40px;
+    padding-top: 20px;
 }

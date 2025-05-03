@@ -196,7 +196,7 @@
         </div>
 
         <div class="botoes">
-          <button class="btn-enviar">Enviar pedido</button>
+          <button class="btn-enviar" type="submit">Enviar pedido</button>
           <button class="btn-recuperar">Recuperar pedido anterior</button>
         </div>
       </form>
@@ -205,12 +205,22 @@
     
   </div>
 <div class="canto-laranja"></div>
-  <aside class="ticket">
+  <aside class="ticket"><br><br>
     == Elias Lanches ==
     <br>
     Quem não sobrevive não volta mais
-    <br><br>
-    <p class="ticket-id">PEDIDO N°<span id="ticket-number"></span></p>
+    <br>
+    <p class="ticket-id">PEDIDO N°<span id="ticket-number">34</span></p>
+
+    <br>
+
+    <div class="items-lista">
+      <ol id="order-list"></ol>
+    </div>
+
+    Valeu por nunca mais não voltar
+    <br><br><br>
   </aside>
+  <script src="script.js"></script>
   </body>
 </html>
