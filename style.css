@@ -318,12 +318,11 @@ textarea {
    display: flex;
    align-items: flex-start;
    gap: 10px;
-   flex: 1 0 0;
    align-self: stretch;
    border-radius: 8px;
    border: 1px solid var(--gray-4, #CED4DA);
    resize: none;
-   color: var(--gray-4, #00000);
+   color: var(--gray-4, #000);
    font-family: Inter;
    font-size: 16px;
    font-style: normal;
@@ -348,7 +347,7 @@ textarea {
 }
 
 .termos-aceite label {
-    color: var(--other-black, #000)
+    color: var(--other-black, #000);
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
@@ -376,8 +375,8 @@ textarea {
     font-style: normal;
     font-weight: 400;
     line-height: 40px;
-    color: var(--other-white, #FFF)
-    border:1px solid #E8590C;
+    color: var(--other-white, #FFF);
+    border: 1px solid #E8590C;
 }
 
 .btn-recuperar{
@@ -398,9 +397,9 @@ textarea {
 }
 
 .canto-laranja {
-    width: 421.736px;
-    height: 500.431px;
-    border-radius: 0px 0px 0px 260px;
+    width: 300.736px;
+    height: 400.431px;
+    border-radius: 0px 0px 0px 150px;
     background: var(--orange-8, #E8590C);
     flex-shrink: 0;
 }
@@ -409,4 +408,37 @@ body {
     display: flex;
     justify-content: space-between;
     margin: 0;
+}
+
+.principal{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.ticket {
+   width: 350px;
+   height: 408.938px;
+   border-radius: 20px;
+   background: var(--orange-0, #FFF4E6);
+   flex-shrink: 0;
+   position: absolute;
+   left: 62%;
+   top: 15%;
+   color: var(--other-black, #000);
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 130%;
+   text-align: center;
+}
+
+.ticket-id {
+    color: var(--orange-8, #E8590C);
+    font-family: Coda;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    text-align: center;
 }
