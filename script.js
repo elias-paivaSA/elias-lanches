@@ -16,6 +16,9 @@ const btnMaisOvo = document.querySelector('.btn-mais-ovo');
 const btnMenosAbacaxi = document.querySelector('.btn-menos-abacaxi');
 const qtdAbacaxi = document.querySelector('#qtd-abacaxi');
 const btnMaisAbacaxi = document.querySelector('.btn-mais-abacaxi');
+const batataFrita = document.getElementById('sim');
+const comentario = document.querySelector('textarea');
+const listaNotaFiscal = document.getElementById('order-list');
 
 const atualizarQuantidade = (btnMenos, btnMais, qtdElementos) => {
     btnMenos.addEventListener('click', () => {
@@ -45,6 +48,28 @@ form.addEventListener('submit', (event) => {
     orderInfo.name = inputName.value;
     orderInfo.email = inputEmail.value;
 
-    console.log(orderInfo);
+    if (parseInt(qtdLanchao.innerText) > 0) orderInfo.Lanchao = qtdLanchao.innerText;
+    if (parseInt(qtdLanche.innerText) > 0) orderInfo.qtdLanche = qtdLanche.innerText;
+    if (parseInt(qtdLanchinho.innerText) > 0) orderInfo.qtdLanchinho = qtdLanchinho.innerText;
+    if (parseInt(qtdOvo.innerText) > 0) orderInfo.qtdOvo = qtdOvo.innerText;
+    if (parseInt(qtdAbacaxi.innerText) > 0) orderInfo.qtdAbacaxi = qtdAbacaxi.innerText;
+
+    const molhos = document.querySelectorAll('input[name="molho"]:checked');
+
+    if(molhos.length > 0) orderInfo.Molhos = molhos.length;
+
+    if(batataFrita.checked === true) orderInfo.Batata = 'Sim';
+
+    if(comentario !== "") orderInfo.Comentario = comentario.value;
+    
+    const itemsNotaFiscal = Object.entries(orderInfo);
+
+    itemsNotaFiscal.forEach((item) => {
+        const newLi = document.createElement('li') ;
+        newLi.innerText = `${item[0]}: ${item[1]}`;
+        listaNotaFiscal.appendChild(newLi)
+    })
+
+    console.log(listaNotaFiscal);
 })
 
