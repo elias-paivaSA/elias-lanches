@@ -52,7 +52,7 @@ form.addEventListener('submit', (event) => {
     if (parseInt(qtdLanche.innerText) > 0) orderInfo.qtdLanche = qtdLanche.innerText;
     if (parseInt(qtdLanchinho.innerText) > 0) orderInfo.qtdLanchinho = qtdLanchinho.innerText;
     if (parseInt(qtdOvo.innerText) > 0) orderInfo.qtdOvo = qtdOvo.innerText;
-    if (parseInt(qtdAbacaxi.innerText) > 0) orderInfo.qtdAbacaxi = qtdAbacaxi.innerText;
+    if (parseInt(qtdAbacaxi.innerText) > 0) orderInfo.qtdAbacaxi = qtdAbacaxi.innerText ;
 
     const molhos = document.querySelectorAll('input[name="molho"]:checked');
 
