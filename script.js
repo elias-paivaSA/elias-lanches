@@ -19,6 +19,7 @@ const btnMaisAbacaxi = document.querySelector('.btn-mais-abacaxi');
 const batataFrita = document.getElementById('sim');
 const comentario = document.querySelector('textarea');
 const listaNotaFiscal = document.getElementById('order-list');
+const nota = document.querySelector(".ticket");
 
 const atualizarQuantidade = (btnMenos, btnMais, qtdElementos) => {
     btnMenos.addEventListener('click', () => {
@@ -26,6 +27,7 @@ const atualizarQuantidade = (btnMenos, btnMais, qtdElementos) => {
         if(quantidade > 0) {
             qtdElementos.innerText = quantidade - 1
         }
+        console.log("teste");
     })
 
     btnMais.addEventListener('click', () => {
@@ -47,6 +49,7 @@ form.addEventListener('submit', (event) => {
 
     orderInfo.name = inputName.value;
     orderInfo.email = inputEmail.value;
+    
 
     if (parseInt(qtdLanchao.innerText) > 0) orderInfo.Lanchao = qtdLanchao.innerText;
     if (parseInt(qtdLanche.innerText) > 0) orderInfo.qtdLanche = qtdLanche.innerText;
@@ -70,6 +73,7 @@ form.addEventListener('submit', (event) => {
         listaNotaFiscal.appendChild(newLi);
     })
 
+    nota.style.display = "block";
     console.log(itemsNotaFiscal);
 })
 
