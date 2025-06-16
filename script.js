@@ -60,16 +60,16 @@ form.addEventListener('submit', (event) => {
 
     if(batataFrita.checked === true) orderInfo.Batata = 'Sim';
 
-    if(comentario !== "") orderInfo.Comentario = comentario.value;
+    if(comentario.value !== "") orderInfo.Comentario = comentario.value;
     
     const itemsNotaFiscal = Object.entries(orderInfo);
 
     itemsNotaFiscal.forEach((item) => {
         const newLi = document.createElement('li') ;
         newLi.innerText = `${item[0]}: ${item[1]}`;
-        listaNotaFiscal.appendChild(newLi)
+        listaNotaFiscal.appendChild(newLi);
     })
 
-    console.log(listaNotaFiscal);
+    console.log(itemsNotaFiscal);
 })
 
