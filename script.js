@@ -27,7 +27,6 @@ const atualizarQuantidade = (btnMenos, btnMais, qtdElementos) => {
         if(quantidade > 0) {
             qtdElementos.innerText = quantidade - 1
         }
-        console.log("teste");
     })
 
     btnMais.addEventListener('click', () => {
@@ -41,10 +40,7 @@ atualizarQuantidade(btnMenosLanchinho, btnMaisLanchinho, qtdLanchinho);
 atualizarQuantidade(btnMenosOvo, btnMaisOvo, qtdOvo);
 atualizarQuantidade(btnMenosAbacaxi, btnMaisAbacaxi, qtdAbacaxi);
 
-
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-   
+const criaNotaFiscal = () => {
     let orderInfo = {};
 
     orderInfo.name = inputName.value;
@@ -52,10 +48,10 @@ form.addEventListener('submit', (event) => {
     
 
     if (parseInt(qtdLanchao.innerText) > 0) orderInfo.Lanchao = qtdLanchao.innerText;
-    if (parseInt(qtdLanche.innerText) > 0) orderInfo.qtdLanche = qtdLanche.innerText;
-    if (parseInt(qtdLanchinho.innerText) > 0) orderInfo.qtdLanchinho = qtdLanchinho.innerText;
-    if (parseInt(qtdOvo.innerText) > 0) orderInfo.qtdOvo = qtdOvo.innerText;
-    if (parseInt(qtdAbacaxi.innerText) > 0) orderInfo.qtdAbacaxi = qtdAbacaxi.innerText ;
+    if (parseInt(qtdLanche.innerText) > 0) orderInfo.Lanche = qtdLanche.innerText;
+    if (parseInt(qtdLanchinho.innerText) > 0) orderInfo.Lanchinho = qtdLanchinho.innerText;
+    if (parseInt(qtdOvo.innerText) > 0) orderInfo.Ovo = qtdOvo.innerText;
+    if (parseInt(qtdAbacaxi.innerText) > 0) orderInfo.Abacaxi = qtdAbacaxi.innerText ;
 
     const molhos = document.querySelectorAll('input[name="molho"]:checked');
 
@@ -75,5 +71,12 @@ form.addEventListener('submit', (event) => {
 
     nota.style.display = "block";
     console.log(itemsNotaFiscal);
+}
+
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+   
+    criaNotaFiscal();
 })
 
