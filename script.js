@@ -20,6 +20,7 @@ const batataFrita = document.getElementById("sim");
 const comentario = document.querySelector("textarea");
 const listaNotaFiscal = document.getElementById("order-list");
 const nota = document.querySelector(".ticket");
+const numeroPedido = document.querySelector("#ticket-number");
 
 const atualizarQuantidade = (btnMenos, btnMais, qtdElementos) => {
   btnMenos.addEventListener("click", () => {
@@ -40,9 +41,18 @@ atualizarQuantidade(btnMenosLanchinho, btnMaisLanchinho, qtdLanchinho);
 atualizarQuantidade(btnMenosOvo, btnMaisOvo, qtdOvo);
 atualizarQuantidade(btnMenosAbacaxi, btnMaisAbacaxi, qtdAbacaxi);
 
+const geraNumeroPedido = () => {
+    const numero = Math.ceil(Math.random() * 100);
+    numeroPedido.innerText = numero;
+    
+    return numero;
+}
+
 const criaNotaFiscal = () => {
   let orderInfo = {};
 
+
+  orderInfo.Id = geraNumeroPedido();
   orderInfo.name = inputName.value;
   orderInfo.email = inputEmail.value;
 
@@ -79,6 +89,10 @@ const criaNotaFiscal = () => {
     if (item[0] === "Molhos") sum += molhos.length * 2;
     if (item[0] === "Batata") sum += 2;
   });
+
+  const newH3 = document.createElement("h3");
+  newH3.innerText = `TOTAL: R$${sum.toFixed(2)}`;
+  listaNotaFiscal.appendChild(newH3);
 
   nota.style.display = "block";
   console.log(itemsNotaFiscal);
