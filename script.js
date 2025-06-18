@@ -21,6 +21,7 @@ const comentario = document.querySelector("textarea");
 const listaNotaFiscal = document.getElementById("order-list");
 const nota = document.querySelector(".ticket");
 const numeroPedido = document.querySelector("#ticket-number");
+const btnRecuperar = document.querySelector(".btn-recuperar");
 
 const atualizarQuantidade = (btnMenos, btnMais, qtdElementos) => {
   btnMenos.addEventListener("click", () => {
@@ -88,6 +89,7 @@ const criaNotaFiscal = () => {
     if (item[0] === "Abacaxi") sum += parseInt(item[1]);
     if (item[0] === "Molhos") sum += molhos.length * 2;
     if (item[0] === "Batata") sum += 2;
+
   });
 
   const newH3 = document.createElement("h3");
@@ -95,7 +97,7 @@ const criaNotaFiscal = () => {
   listaNotaFiscal.appendChild(newH3);
 
   nota.style.display = "block";
-  console.log(itemsNotaFiscal);
+  localStorage.setItem("nota", JSON.stringify(orderInfo));
 };
 
 form.addEventListener("submit", (event) => {
@@ -103,3 +105,57 @@ form.addEventListener("submit", (event) => {
 
   criaNotaFiscal();
 });
+
+const recuperaNota = () => {
+    let orderInfo = {};
+
+
+  orderInfo.Id = geraNumeroPedido();
+  orderInfo.name = inputName.value;
+  orderInfo.email = inputEmail.value;
+
+  if (parseInt(qtdLanchao.innerText) > 0)
+    orderInfo.Lanchao = qtdLanchao.innerText;
+  if (parseInt(qtdLanche.innerText) > 0) orderInfo.Lanche = qtdLanche.innerText;
+  if (parseInt(qtdLanchinho.innerText) > 0)
+    orderInfo.Lanchinho = qtdLanchinho.innerText;
+  if (parseInt(qtdOvo.innerText) > 0) orderInfo.Ovo = qtdOvo.innerText;
+  if (parseInt(qtdAbacaxi.innerText) > 0)
+    orderInfo.Abacaxi = qtdAbacaxi.innerText;
+
+  const molhos = document.querySelectorAll('input[name="molho"]:checked');
+
+  if (molhos.length > 0) orderInfo.Molhos = molhos.length;
+
+  if (batataFrita.checked === true) orderInfo.Batata = "Sim";
+
+  if (comentario.value !== "") orderInfo.Comentario = comentario.value;
+
+  const itemsNotaFiscal = Object.entries(orderInfo);
+
+  let sum = 0;
+
+  itemsNotaFiscal.forEach((item) => {
+    const newLi = document.createElement("li");
+    newLi.innerText = `${item[0]}: ${item[1]}`;
+    listaNotaFiscal.appendChild(newLi);
+    if (item[0] === "Lanchao") sum += parseInt(item[1]) * 20;
+    if (item[0] === "Lanche") sum += parseInt(item[1]) * 15;
+    if (item[0] === "Lanchinho") sum += parseInt(item[1]) * 10;
+    if (item[0] === "Ovo") sum += parseInt(item[1]) * 1.5;
+    if (item[0] === "Abacaxi") sum += parseInt(item[1]);
+    if (item[0] === "Molhos") sum += molhos.length * 2;
+    if (item[0] === "Batata") sum += 2;
+
+  });
+
+  const newH3 = document.createElement("h3");
+  newH3.innerText = `TOTAL: R$${sum.toFixed(2)}`;
+  listaNotaFiscal.appendChild(newH3);
+
+  nota.style.display = "block";
+}
+
+btnRecuperar.addEventListener("click", (event) => {
+
+})
